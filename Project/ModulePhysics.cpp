@@ -18,6 +18,7 @@ ModulePhysics::~ModulePhysics()
 bool ModulePhysics::Start()
 {
 	LOG("Creating Physics 2D environment");
+	
 
 	// TODO 2: Create a private variable for the world
 	// - You need to send it a default gravity
