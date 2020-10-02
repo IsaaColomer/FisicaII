@@ -14,7 +14,6 @@ public:
 	bool CleanUp();
 
 private:
-	b2Vec2 Gravity(0.0f,10.0f);
-	b2World world(Gravity);
+
 	bool debug;
 };
