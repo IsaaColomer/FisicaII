@@ -5,7 +5,7 @@
 #include "Box2D/Box2D/Box2D.h"
 // TODO 1: Include Box 2 header and library
 
-ModulePhysics::ModulePhysics(Application* app, bool start_enabled) : Module(app, start_enabled)
+ModulePhysics::ModulePhysics(Application* app,b2Vec2* Gravity, bool start_enabled) : Module(app, start_enabled)
 {
 	debug = true;
 }
