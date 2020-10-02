@@ -5,7 +5,7 @@
 #include "Box2D/Box2D/Box2D.h"
 // TODO 1: Include Box 2 header and library
 
-ModulePhysics::ModulePhysics(Application* app,b2World* world, bool start_enabled) : Module(app, start_enabled)
+ModulePhysics::ModulePhysics(Application* app, b2World* world, bool start_enabled) : Module(app, start_enabled)
 {
 	
 	debug = true;
@@ -20,13 +20,14 @@ bool ModulePhysics::Start()
 {
 	LOG("Creating Physics 2D environment");
 	
+	b2Vec2 Gravity(0.0f, -10.0f);
 
 	// TODO 2: Create a private variable for the world
 	// - You need to send it a default gravity
 	// - You need init the world in the constructor
 	// - Remember to destroy the world after using it
-	b2Vec2 Gravity;
-	world = new b2World(Gravity(0.0f, -10.0f));
+
+	world = new b2World(Gravity);
 
 	
 
