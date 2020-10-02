@@ -5,8 +5,9 @@
 #include "Box2D/Box2D/Box2D.h"
 // TODO 1: Include Box 2 header and library
 
-ModulePhysics::ModulePhysics(Application* app,b2Vec2* Gravity, bool start_enabled) : Module(app, start_enabled)
+ModulePhysics::ModulePhysics(Application* app,b2World* world, bool start_enabled) : Module(app, start_enabled)
 {
+	
 	debug = true;
 }
 
@@ -24,17 +25,24 @@ bool ModulePhysics::Start()
 	// - You need to send it a default gravity
 	// - You need init the world in the constructor
 	// - Remember to destroy the world after using it
+	b2Vec2 Gravity;
+	world = new b2World(Gravity(0.0f, -10.0f));
 
+	
+
+	// TODO 4: Create a a big static circle as "ground"
 	b2BodyDef ground;
 	ground.position.Set(0.0f, -10.0f);
-	// **********    b2Body* ground = world.CreateBody(&ground);  ******************** sha de crear el world
+
+	b2Body* groundBody = world.CreateBody(&ground); 
+
 	b2CircleShape groundCircle;
+
 	groundCircle.m_p.Set(2.0f, 3.0f);
 	groundCircle.m_radius = 0.5f;
 
-	//ground->CreateFixture(&groundCircle, 0.0f) ;====== Primer s'ha d'arreglar b2Body* ground que depen del TODO 1 ===== 
+	groundBody->CreateFixture(&groundCircle, 0.0f);
 
-	// TODO 4: Create a a big static circle as "ground"
 	return true;
 }
 
@@ -42,7 +50,8 @@ bool ModulePhysics::Start()
 update_status ModulePhysics::PreUpdate()
 {
 	// TODO 3: Update the simulation ("step" the world)
-
+	
+	world->Step(1 / 60);
 	return UPDATE_CONTINUE;
 }
 
@@ -51,6 +60,7 @@ update_status ModulePhysics::PostUpdate()
 {
 	// TODO 5: On space bar press, create a circle on mouse position
 	// - You need to transform the position / radius
+	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
 
 	if(App->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN)
 		debug = !debug;

@@ -5,7 +5,7 @@
 class ModulePhysics : public Module
 {
 public:
-	ModulePhysics(Application* app, b2Vec2 *Gravity, bool start_enabled = true);
+	ModulePhysics(Application* app, b2World *world, bool start_enabled = true);
 	~ModulePhysics();
 
 	bool Start();
@@ -15,8 +15,8 @@ public:
 
 private:
 
-	b2Vec2 *Gravity(0.0f, -10.0f);
-	b2World world(Gravity*);
+	
+	
 
 	bool debug;
 };
