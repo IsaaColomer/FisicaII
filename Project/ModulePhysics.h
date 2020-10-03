@@ -5,20 +5,14 @@
 class ModulePhysics : public Module
 {
 public:
-	ModulePhysics(Application* app, b2World *world, bool start_enabled = true);
+	ModulePhysics(Application* app, bool start_enabled = true);
 	~ModulePhysics();
 
 	bool Start();
 	update_status PreUpdate();
 	update_status PostUpdate();
 	bool CleanUp();
-
 private:
-
-
-	
-	b2World world();
-	
-
+	b2World* world;
 	bool debug;
 };
