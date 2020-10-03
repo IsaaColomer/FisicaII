@@ -20,14 +20,13 @@ bool ModulePhysics::Start()
 {
 	LOG("Creating Physics 2D environment");
 	
-	b2Vec2 Gravity(0.0f, -10.0f);
-
+	
 	// TODO 2: Create a private variable for the world
 	// - You need to send it a default gravity
 	// - You need init the world in the constructor
 	// - Remember to destroy the world after using it
 
-	world = new b2World(Gravity);
+	b2Vec2 Gravity(0.0f, -10.0f);
 
 	
 
@@ -51,7 +50,8 @@ bool ModulePhysics::Start()
 update_status ModulePhysics::PreUpdate()
 {
 	// TODO 3: Update the simulation ("step" the world)
-	
+	float32 timeStep = 1.0f / 60.0f;
+
 	world->Step(1 / 60);
 	return UPDATE_CONTINUE;
 }

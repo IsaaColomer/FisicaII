@@ -16,7 +16,8 @@ public:
 private:
 
 
-	b2World world;
+	
+	b2World world();
 	
 
 	bool debug;
