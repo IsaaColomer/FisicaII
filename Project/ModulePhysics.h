@@ -13,6 +13,7 @@ public:
 	update_status PostUpdate();
 	bool CleanUp();
 private:
+	
 	b2World* world;
 	bool debug;
 };

@@ -7,7 +7,6 @@
 
 ModulePhysics::ModulePhysics(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
-	
 	debug = true;
 }
 
@@ -26,14 +25,14 @@ bool ModulePhysics::Start()
 
 	b2Vec2 Gravity(0.0f, -10.0f);	
 	ModulePhysics::world = new b2World (Gravity);
-	b2World* tonto = ModulePhysics::world;
+	b2World *tonto = ModulePhysics::world;
 
 	// TODO 4: Create a a big static circle as "ground"
 	b2BodyDef ground;
 	ground.position.Set(0.0f, -10.0f);
 
 	b2World tonto(Gravity);
-	b2Body* groundBody = tonto->CreateBody(&ground); 
+	b2Body *groundBody = tonto->CreateBody(&ground); 
 
 	b2CircleShape groundCircle;
 
