@@ -7,6 +7,8 @@
 
 ModulePhysics::ModulePhysics(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
+	b2Vec2 Gravity(0.0f, -10.0f);
+	ModulePhysics::world = new b2World(Gravity);
 	debug = true;
 }
 
@@ -23,16 +25,16 @@ bool ModulePhysics::Start()
 	// - You need init the world in the constructor
 	// - Remember to destroy the world after using it
 
-	b2Vec2 Gravity(0.0f, -10.0f);	
-	ModulePhysics::world = new b2World (Gravity);
-	b2World *tonto = ModulePhysics::world;
+	
+	
+	
 
 	// TODO 4: Create a a big static circle as "ground"
 	b2BodyDef ground;
 	ground.position.Set(0.0f, -10.0f);
 
-	b2World tonto(Gravity);
-	b2Body *groundBody = tonto->CreateBody(&ground); 
+
+	b2Body *groundBody = ModulePhysics::world->CreateBody(&ground);
 
 	b2CircleShape groundCircle;
 
@@ -52,7 +54,7 @@ update_status ModulePhysics::PreUpdate()
 
 	int32 velocityIterations = 6;
 	int32 positionIterations = 2;
-	b2World* tonto = ModulePhysics::world;
+	
 	/*
 	for (int32 i = 0; i < 60; ++i)
 	{
