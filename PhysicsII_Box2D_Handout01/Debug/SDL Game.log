@@ -1,8 +1,7 @@
 ﻿  ModulePhysics.cpp
-C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(74,82): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(74,57): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(74,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(80,83): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(80,58): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(80,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(75,68): warning C4244: 'argumento': conversión de 'int' a 'float32'; posible pérdida de datos
+C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(75,25): warning C4244: 'argumento': conversión de 'int' a 'float32'; posible pérdida de datos
+C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(100,82): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(100,57): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(100,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
   SDL Game.vcxproj -> C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\Debug\Physics 2 Class 1 Handout.exe
