@@ -1,2 +1,0 @@
-# FísicaII
- Treballs de FísicaII
