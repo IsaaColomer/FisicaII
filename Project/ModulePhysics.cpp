@@ -7,8 +7,6 @@
 
 ModulePhysics::ModulePhysics(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
-	b2Vec2 Gravity(0.0f, -10.0f);
-	ModulePhysics::world = new b2World(Gravity);
 	debug = true;
 }
 
@@ -25,24 +23,22 @@ bool ModulePhysics::Start()
 	// - You need init the world in the constructor
 	// - Remember to destroy the world after using it
 
-	
-	
-	
-
 	// TODO 4: Create a a big static circle as "ground"
 	b2BodyDef ground;
-	ground.position.Set(0.0f, -10.0f);
-
-
+	ground.type = b2_staticBody;
+	ground.position.Set(PIXELS_TO_METERS(500), PIXELS_TO_METERS(450));
+	
 	b2Body *groundBody = ModulePhysics::world->CreateBody(&ground);
 
 	b2CircleShape groundCircle;
+	groundCircle.m_radius = PIXELS_TO_METERS(300);
 
-	groundCircle.m_p.Set(2.0f, 3.0f);
-	groundCircle.m_radius = 0.5f;
+	b2FixtureDef Fixture;
+	Fixture.shape = &groundCircle;
+	groundBody->CreateFixture(&Fixture);
 
-	groundBody->CreateFixture(&groundCircle, 0.0f);
-
+	//groundBody->CreateFixture(&groundCircle, 0.0f);
+	//groundCircle.m_p.Set(2.0f, 3.0f);
 	return true;
 }
 
@@ -50,20 +46,7 @@ bool ModulePhysics::Start()
 update_status ModulePhysics::PreUpdate()
 {
 	// TODO 3: Update the simulation ("step" the world)
-	float32 timeStep = 1.0f / 60.0f;
-
-	int32 velocityIterations = 6;
-	int32 positionIterations = 2;
-	
-	/*
-	for (int32 i = 0; i < 60; ++i)
-	{
-		tonto->Step(timeStep, velocityIterations, positionIterations);
-		b2Vec2 position = body->GetPosition();
-		float32 angle = body->GetAngle();
-		printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
-	}
-	*/
+	ModulePhysics::world->Step(1.0f / 60.0f, 8, 3);
 
 	return UPDATE_CONTINUE;
 }
@@ -83,7 +66,7 @@ update_status ModulePhysics::PostUpdate()
 
 	// Bonus code: this will iterate all objects in the world and draw the circles
 	// You need to provide your own macro to translate meters to pixels
-	/*
+	
 	for(b2Body* b = world->GetBodyList(); b; b = b->GetNext())
 	{
 		for(b2Fixture* f = b->GetFixtureList(); f; f = f->GetNext())
@@ -101,7 +84,7 @@ update_status ModulePhysics::PostUpdate()
 				// You will have to add more cases to draw boxes, edges, and polygons ...
 			}
 		}
-	}*/
+	}
 
 	return UPDATE_CONTINUE;
 }

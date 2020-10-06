@@ -13,7 +13,7 @@ public:
 	update_status PostUpdate();
 	bool CleanUp();
 private:
-	
-	b2World *world;
+	b2Vec2 gravity = b2Vec2(0.0f, -10.0f);
+	b2World* world = new b2World(gravity);
 	bool debug;
 };
