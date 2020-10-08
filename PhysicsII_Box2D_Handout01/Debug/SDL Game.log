@@ -1,7 +1,17 @@
-﻿  ModulePhysics.cpp
-C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(75,68): warning C4244: 'argumento': conversión de 'int' a 'float32'; posible pérdida de datos
-C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(75,25): warning C4244: 'argumento': conversión de 'int' a 'float32'; posible pérdida de datos
-C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(100,82): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(100,57): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(100,32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-  SDL Game.vcxproj -> C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\Debug\Physics 2 Class 1 Handout.exe
+﻿  Application.cpp
+  Main.cpp
+  ModuleAudio.cpp
+  ModuleInput.cpp
+  ModulePhysics.cpp
+C:\Users\isaacdd\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(79,68): warning C4244: 'argument': conversion from 'int' to 'float32', possible loss of data
+C:\Users\isaacdd\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(79,25): warning C4244: 'argument': conversion from 'int' to 'float32', possible loss of data
+C:\Users\isaacdd\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(104,82): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\isaacdd\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(104,57): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\isaacdd\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(104,32): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  ModulePlayer.cpp
+  ModuleRender.cpp
+  ModuleSceneIntro.cpp
+  ModuleTextures.cpp
+  ModuleWindow.cpp
+  Generating Code...
+  SDL Game.vcxproj -> C:\Users\isaacdd\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\Debug\Physics 2 Class 1 Handout.exe

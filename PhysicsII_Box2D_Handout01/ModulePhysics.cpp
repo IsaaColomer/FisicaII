@@ -9,11 +9,14 @@
 ModulePhysics::ModulePhysics(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
 	debug = true;
+	ModulePhysics::world = new b2World(ModulePhysics::gravity);
 }
 
 // Destructor
 ModulePhysics::~ModulePhysics()
 {
+	delete ModulePhysics::world;
+	ModulePhysics::world = nullptr;
 }
 
 bool ModulePhysics::Start()
@@ -29,11 +32,12 @@ bool ModulePhysics::Start()
 	// TODO 4: Create a a big static circle as "ground"
 	b2BodyDef body_Def;
 	body_Def.type = b2_staticBody;
-	body_Def.position.Set(PIXELS_TO_METERS(490), PIXELS_TO_METERS(425));
+	//body_Def.position.Set(PIXELS_TO_METERS(490), PIXELS_TO_METERS(425));
+	body_Def.position.Set(PIXELS_TO_METERS(SCREEN_WIDTH / 2), PIXELS_TO_METERS(SCREEN_HEIGHT / 2));
 	b2Body* body = ModulePhysics::world->CreateBody(&body_Def);
 
 	b2CircleShape shape;
-	shape.m_radius = PIXELS_TO_METERS(300);
+	shape.m_radius = PIXELS_TO_METERS(200);
 
 	b2FixtureDef fixture;
 	fixture.shape = &shape;
@@ -79,7 +83,7 @@ update_status ModulePhysics::PostUpdate()
 		b2Body* bodyMov = ModulePhysics::world->CreateBody(&body_Mov);
 
 		b2CircleShape shape2;
-		shape2.m_radius = PIXELS_TO_METERS(50);
+		shape2.m_radius = PIXELS_TO_METERS(20);
 		b2FixtureDef fixture2;
 		fixture2.shape = &shape2;
 		bodyMov->CreateFixture(&fixture2);
