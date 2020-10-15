@@ -55,9 +55,9 @@ public:
 
 		b2Vec2 vertexs[4];
 		vertexs[0].Set(0.0f, 0.0f);
-		vertexs[0].Set(1.0f, 0.0f);
-		vertexs[0].Set(1.0f, 1.0f);
-		vertexs[0].Set(0.0f, 1.0f);
+		vertexs[1].Set(1.0f, 0.0f);
+		vertexs[2].Set(1.0f, 1.0f);
+		vertexs[3].Set(0.0f, 1.0f);
 
 		int32 count = 4;
 		body1.position.Set(PIXEL_TO_METERS(x), PIXEL_TO_METERS(y));
