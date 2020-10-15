@@ -1,17 +1,22 @@
 ﻿  Application.cpp
+C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'Box2D.h': No such file or directory
+  log.cpp
   Main.cpp
+C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'Box2D.h': No such file or directory
   ModuleAudio.cpp
+C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'Box2D.h': No such file or directory
   ModuleInput.cpp
+C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'Box2D.h': No such file or directory
   ModulePhysics.cpp
-C:\Users\isaacdd\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(79,68): warning C4244: 'argument': conversion from 'int' to 'float32', possible loss of data
-C:\Users\isaacdd\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(79,25): warning C4244: 'argument': conversion from 'int' to 'float32', possible loss of data
-C:\Users\isaacdd\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(104,82): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\isaacdd\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(104,57): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\isaacdd\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.cpp(104,32): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'Box2D.h': No such file or directory
   ModulePlayer.cpp
+C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'Box2D.h': No such file or directory
   ModuleRender.cpp
+C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'Box2D.h': No such file or directory
   ModuleSceneIntro.cpp
+C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'Box2D.h': No such file or directory
   ModuleTextures.cpp
+C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'Box2D.h': No such file or directory
   ModuleWindow.cpp
-  Generating Code...
-  SDL Game.vcxproj -> C:\Users\isaacdd\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\Debug\Physics 2 Class 1 Handout.exe
+C:\Users\Isaac\Documents\GitHub\FisicaII\PhysicsII_Box2D_Handout01\ModulePhysics.h(4,10): fatal error C1083: No se puede abrir el archivo incluir: 'Box2D.h': No such file or directory
+  Generando código...
