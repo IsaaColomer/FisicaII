@@ -51,8 +51,6 @@ update_status ModuleSceneIntro::Update()
 	}
 	if (App->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
 	{
-		// TODO 3: Create a chain shape using those vertices
-		// remember to convert them from pixels to meters!
 		App->physics->CreateChain(App->input->GetMouseX(), App->input->GetMouseY());
 	}
 	// TODO 7: Draw all the circles using "circle" texture
