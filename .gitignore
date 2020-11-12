@@ -54,6 +54,7 @@ Thumbs.db
 *.ilk
 *.log
 .vs
+/.git/*
 
 [Bb]uild
 [Bb]in
