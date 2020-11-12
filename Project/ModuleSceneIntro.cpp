@@ -75,7 +75,7 @@ bool ModuleSceneIntro::Start()
 		310, 518
 	};
 
-//	App->physics->CreateChain(250, 0, mapa, 48, b2_staticBody);
+	App->physics->CreateChain(-5, -75, mapa, 48, b2_staticBody);
 	App->physics -> CreateChain(-5, -75, pent, 10, b2_staticBody);
 	App->physics->CreateChain(-5, -75, pent2, 10, b2_staticBody);
 	App->physics->CreateCircle(416, 175, 17,b2_staticBody);
