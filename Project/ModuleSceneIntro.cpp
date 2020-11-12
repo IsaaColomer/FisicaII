@@ -32,32 +32,33 @@ bool ModuleSceneIntro::Start()
 	back = App->textures->Load("pinball/mapa.png");
 	sensor = App->physics->CreateRectangleSensor(SCREEN_WIDTH / 2, SCREEN_HEIGHT, SCREEN_WIDTH, 50);
 
-	// Pivot -114, -246
-	// Pivot -83, 173
-// Pivot -83, 173
-// Pivot 0, 0
-	int mapa1[38] = {
-		9, 8,
-		500, 7,
-		502, 632,
-		446, 633,
-		446, 563,
-		342, 602,
-		340, 595,
-		447, 554,
-		448, 96,
-		458, 96,
-		456, 624,
-		492, 624,
-		491, 52,
-		457, 20,
-		18, 20,
-		18, 556,
-		136, 595,
-		125, 602,
-		14, 563
+	int mapa[48] = {
+		268, 86,
+		750, 86,
+		750, 705,
+		702, 705,
+		702, 637,
+		599, 675,
+		596, 667,
+		701, 627,
+		701, 171,
+		708, 162,
+		714, 170,
+		714, 694,
+		743, 694,
+		743, 136,
+		738, 123,
+		727, 109,
+		717, 103,
+		703, 97,
+		687, 93,
+		277, 93,
+		277, 627,
+		387, 668,
+		384, 679,
+		267, 637
 	};
-	// Pivot 0, 0
+
 	int pent[10] = {
 		615, 484,
 		665, 491,
@@ -74,7 +75,7 @@ bool ModuleSceneIntro::Start()
 		310, 518
 	};
 
-	App->physics->CreateChain(250, 0, mapa1, 38, b2_staticBody);
+//	App->physics->CreateChain(250, 0, mapa, 48, b2_staticBody);
 	App->physics -> CreateChain(-5, -75, pent, 10, b2_staticBody);
 	App->physics->CreateChain(-5, -75, pent2, 10, b2_staticBody);
 	App->physics->CreateCircle(416, 175, 17,b2_staticBody);
