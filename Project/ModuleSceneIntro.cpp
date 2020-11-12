@@ -25,11 +25,11 @@ bool ModuleSceneIntro::Start()
 
 	App->renderer->camera.x = App->renderer->camera.y = 0;
 
-	//circle = App->textures->Load("pinball/wheel.png"); 
-	box = App->textures->Load("pinball/crate.png");
-	rick = App->textures->Load("pinball/rick_head.png");
-	bonus_fx = App->audio->LoadFx("pinball/bonus.wav");
-	back = App->textures->Load("pinball/mapa.png");
+	//circle = App->textures->Load("assets/wheel.png"); 
+	box = App->textures->Load("assets/crate.png");
+	rick = App->textures->Load("assets/rick_head.png");
+	bonus_fx = App->audio->LoadFx("assets/bonus.wav");
+	back = App->textures->Load("assets/mapa.png");
 	sensor = App->physics->CreateRectangleSensor(SCREEN_WIDTH / 2, SCREEN_HEIGHT, SCREEN_WIDTH, 50);
 
 	// Pivot -114, -246
