@@ -1,8 +1,0 @@
-﻿  ModuleSceneIntro.cpp
-C:\Users\Isaac\Documents\GitHub\FisicaII\Handout2\ModuleSceneIntro.cpp(46,76): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Isaac\Documents\GitHub\FisicaII\Handout2\ModuleSceneIntro.cpp(46,51): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Isaac\Documents\GitHub\FisicaII\Handout2\ModuleSceneIntro.cpp(50,73): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Isaac\Documents\GitHub\FisicaII\Handout2\ModuleSceneIntro.cpp(50,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Isaac\Documents\GitHub\FisicaII\Handout2\ModuleSceneIntro.cpp(54,75): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Isaac\Documents\GitHub\FisicaII\Handout2\ModuleSceneIntro.cpp(54,50): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  SDL Game.vcxproj -> C:\Users\Isaac\Documents\GitHub\FisicaII\Handout2\Debug\2D Physics - class 2.exe
