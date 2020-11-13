@@ -116,42 +116,6 @@ update_status ModuleSceneIntro::Update()
 	if(App->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
 	{
 		// Pivot 0, 0
-		int rick_head[64] = {
-			14, 36,
-			42, 40,
-			40, 0,
-			75, 30,
-			88, 4,
-			94, 39,
-			111, 36,
-			104, 58,
-			107, 62,
-			117, 67,
-			109, 73,
-			110, 85,
-			106, 91,
-			109, 99,
-			103, 104,
-			100, 115,
-			106, 121,
-			103, 125,
-			98, 126,
-			95, 137,
-			83, 147,
-			67, 147,
-			53, 140,
-			46, 132,
-			34, 136,
-			38, 126,
-			23, 123,
-			30, 114,
-			10, 102,
-			29, 90,
-			0, 75,
-			30, 62
-		};
-
-		//ricks.add(App->physics->CreateChain(App->input->GetMouseX(), App->input->GetMouseY(), rick_head, 64));
 	}
 
 	// Prepare for raycast ------------------------------------------------------
@@ -219,9 +183,13 @@ update_status ModuleSceneIntro::Update()
 
 void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB)
 {
-	int x, y;
 
-	App->audio->PlayFx(bonus_fx);
+	int x, y;
+	if (bodyA != NULL && bodyB != NULL)
+	{
+		App->renderer->DrawLine(ray.x, ray.y, ray.x, ray.y, 255, 255, 255);
+	}
+	//App->audio->PlayFx(bonus_fx);
 
 	/*
 	if(bodyA)

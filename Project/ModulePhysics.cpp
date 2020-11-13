@@ -144,27 +144,72 @@ PhysBody* ModulePhysics::CreateChain(int x, int y, int* points, int size, b2Body
 	b2ChainShape shape;
 	b2Vec2* p = new b2Vec2[size / 2];
 
-	for(uint i = 0; i < size / 2; ++i)
+	for (uint i = 0; i < size / 2; ++i)
 	{
 		p[i].x = PIXEL_TO_METERS(points[i * 2 + 0]);
 		p[i].y = PIXEL_TO_METERS(points[i * 2 + 1]);
 	}
 
-	shape.CreateLoop(p, size / 2);
+}
 
-	b2FixtureDef fixture;
-	fixture.shape = &shape;
+b2RevoluteJoint* ModulePhysics::CreateRevoluteJoint(PhysBody* bodyB, int* vects, int size, int posx, int posy, int desplacementx, int desplacementy, int upper_angle, int lower_angle, int max_torque, int speed, uint16 mask, uint16 category)
+{
+	//body and fixture defs - the common parts
+	b2BodyDef bodyDef;
+	b2FixtureDef fixtureDef;
+	fixtureDef.density = 1;
+	fixtureDef.filter.maskBits = mask;
+	fixtureDef.filter.categoryBits = category;
 
-	b->CreateFixture(&fixture);
+	//two shapes
+	b2PolygonShape poligonShape;
 
-	delete p;
+	b2Vec2* vect = new b2Vec2[size / 2];
+	for (uint i = 0; i < size / 2; ++i)
+	{
+		vect[i].x = PIXEL_TO_METERS(vects[i * 2 + 0]);
+		vect[i].y = PIXEL_TO_METERS(vects[i * 2 + 1]);
+	}
 
-	PhysBody* pbody = new PhysBody();
-	pbody->body = b;
-	b->SetUserData(pbody);
-	pbody->width = pbody->height = 0;
+	poligonShape.Set(vect, size / 2);
 
-	return pbody;
+	//make a box
+	bodyDef.position.Set(PIXEL_TO_METERS(posx), PIXEL_TO_METERS(posy));
+	fixtureDef.shape = &poligonShape;
+	bodyDef.type = b2_dynamicBody;
+	b2Body* m_bodyA = world->CreateBody(&bodyDef);
+	m_bodyA->CreateFixture(&fixtureDef);
+
+
+	b2RevoluteJointDef revoluteJointDef;
+	revoluteJointDef.bodyA = m_bodyA;
+	revoluteJointDef.bodyB = bodyB->body;
+	revoluteJointDef.collideConnected = false;
+	revoluteJointDef.type = e_revoluteJoint;
+	revoluteJointDef.localAnchorA.Set(PIXEL_TO_METERS(desplacementx), PIXEL_TO_METERS(desplacementy));
+
+	if (lower_angle != NULL && upper_angle != NULL)
+	{
+		revoluteJointDef.enableLimit = true;
+		revoluteJointDef.lowerAngle = lower_angle * DEGTORAD;
+		revoluteJointDef.upperAngle = upper_angle * DEGTORAD;
+	}
+	else
+		revoluteJointDef.enableLimit = false;
+
+	if (max_torque != 0)
+	{
+		revoluteJointDef.enableMotor = true;
+		revoluteJointDef.maxMotorTorque = max_torque;
+		revoluteJointDef.motorSpeed = speed * DEGTORAD; //90 degrees per second
+	}
+	else
+		revoluteJointDef.enableMotor = false;
+
+
+	b2RevoluteJoint* m_joint = (b2RevoluteJoint*)world->CreateJoint(&revoluteJointDef);
+
+	return m_joint;
 }
 
 // 
