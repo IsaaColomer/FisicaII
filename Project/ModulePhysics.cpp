@@ -211,7 +211,6 @@ b2RevoluteJoint* ModulePhysics::CreateRevoluteJoint(PhysBody* bodyB, int* vects,
 
 	return m_joint;
 }
-
 // 
 update_status ModulePhysics::PostUpdate()
 {

@@ -24,7 +24,7 @@ public:
 
 	PhysBody* sensor;
 	bool sensed;
-
+	b2RevoluteJoint* left;
 	SDL_Texture* circle;
 	SDL_Texture* box;
 	SDL_Texture* rick;

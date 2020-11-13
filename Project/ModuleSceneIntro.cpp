@@ -75,12 +75,42 @@ bool ModuleSceneIntro::Start()
 		310, 518
 	};
 
+	int left_[48] = {
+	268, 86,
+	750, 86,
+	750, 705,
+	702, 705,
+	702, 637,
+	599, 675,
+	596, 667,
+	701, 627,
+	701, 171,
+	708, 162,
+	714, 170,
+	714, 694,
+	743, 694,
+	743, 136,
+	738, 123,
+	727, 109,
+	717, 103,
+	703, 97,
+	687, 93,
+	277, 93,
+	277, 627,
+	387, 668,
+	384, 679,
+	267, 637
+	};
+
 	App->physics->CreateChain(-5, -75, mapa, 48, b2_staticBody);
 	App->physics -> CreateChain(-5, -75, pent, 10, b2_staticBody);
 	App->physics->CreateChain(-5, -75, pent2, 10, b2_staticBody);
 	App->physics->CreateCircle(416, 175, 17,b2_staticBody);
 	App->physics->CreateCircle(354, 115, 17,b2_staticBody);
 	App->physics->CreateCircle(483, 115, 17,b2_staticBody);
+	PhysBody* b1 = App->physics->CreateCircle(225, 300, 15, b2_staticBody);
+	left = App->physics->CreateRevoluteJoint(b1, left_, 16, 225, 300, 70, 20, 200, 150, 250, -90, 0x0003, 0x0002);
+
 	return ret;
 }
 
@@ -117,6 +147,25 @@ update_status ModuleSceneIntro::Update()
 	{
 		// Pivot 0, 0
 	}
+
+
+	if ((App->input->GetKey(SDL_SCANCODE_A) == KEY_DOWN))
+	{
+		App->scene_intro->left->SetMotorSpeed(400);
+	}
+	else if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) 
+	{
+		App->scene_intro->left->SetMotorSpeed(400);
+	}
+	else if ((App->input->GetKey(SDL_SCANCODE_A) == KEY_UP)) 
+	{
+		//App->audio->PlayFx(App->map->kicker2_fx);
+	}
+	else {
+		App->scene_intro->left->SetMotorSpeed(-200);
+	}
+
+
 
 	// Prepare for raycast ------------------------------------------------------
 	
