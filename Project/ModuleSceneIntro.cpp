@@ -30,6 +30,8 @@ bool ModuleSceneIntro::Start()
 	rick = App->textures->Load("assets/rick_head.png");
 	bonus_fx = App->audio->LoadFx("assets/bonus.wav");
 	back = App->textures->Load("assets/mapa.png");
+	leftFlipper = App->textures->Load("assets/palancabona.png");
+	//rightFlipper = App->textures->Load("pinball/rightFlipper.png");
 	sensor = App->physics->CreateRectangleSensor(SCREEN_WIDTH / 2, SCREEN_HEIGHT, SCREEN_WIDTH, 50);
 
 	int mapa[48] = {
@@ -75,41 +77,18 @@ bool ModuleSceneIntro::Start()
 		310, 518
 	};
 
-	int left_[48] = {
-	268, 86,
-	750, 86,
-	750, 705,
-	702, 705,
-	702, 637,
-	599, 675,
-	596, 667,
-	701, 627,
-	701, 171,
-	708, 162,
-	714, 170,
-	714, 694,
-	743, 694,
-	743, 136,
-	738, 123,
-	727, 109,
-	717, 103,
-	703, 97,
-	687, 93,
-	277, 93,
-	277, 627,
-	387, 668,
-	384, 679,
-	267, 637
-	};
-
 	App->physics->CreateChain(-5, -75, mapa, 48, b2_staticBody);
 	App->physics -> CreateChain(-5, -75, pent, 10, b2_staticBody);
 	App->physics->CreateChain(-5, -75, pent2, 10, b2_staticBody);
 	App->physics->CreateCircle(416, 175, 17,b2_staticBody);
 	App->physics->CreateCircle(354, 115, 17,b2_staticBody);
 	App->physics->CreateCircle(483, 115, 17,b2_staticBody);
-	PhysBody* b1 = App->physics->CreateCircle(225, 300, 15, b2_staticBody);
-	left = App->physics->CreateRevoluteJoint(b1, left_, 16, 225, 300, 70, 20, 200, 150, 250, -90, 0x0003, 0x0002);
+
+	LeftFlipper.add(App->physics->lFlip(390, 666, 80, 20, 380, 605));
+	LeftFlipper.getLast()->data->listener = this;
+
+	RightFlipper.add(App->physics->rFlip(592, 666, 80, 20, 588, 605));
+	RightFlipper.getLast()->data->listener = this;
 
 	return ret;
 }
@@ -142,30 +121,55 @@ update_status ModuleSceneIntro::Update()
 	{
 		boxes.add(App->physics->CreateRectangle(App->input->GetMouseX(), App->input->GetMouseY(), 100, 50));
 	}
+	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_DOWN)
+	{
+		LeftFlipper.getFirst()->data->body->ApplyTorque(-2500.0f, true);
+	}
+	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_DOWN)
+	{
+		RightFlipper.getFirst()->data->body->ApplyTorque(2500.0f, true);
+	}
 
 	if(App->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
 	{
 		// Pivot 0, 0
-	}
+		int rick_head[64] = {
+			14, 36,
+			42, 40,
+			40, 0,
+			75, 30,
+			88, 4,
+			94, 39,
+			111, 36,
+			104, 58,
+			107, 62,
+			117, 67,
+			109, 73,
+			110, 85,
+			106, 91,
+			109, 99,
+			103, 104,
+			100, 115,
+			106, 121,
+			103, 125,
+			98, 126,
+			95, 137,
+			83, 147,
+			67, 147,
+			53, 140,
+			46, 132,
+			34, 136,
+			38, 126,
+			23, 123,
+			30, 114,
+			10, 102,
+			29, 90,
+			0, 75,
+			30, 62
+		};
 
-
-	if ((App->input->GetKey(SDL_SCANCODE_A) == KEY_DOWN))
-	{
-		App->scene_intro->left->SetMotorSpeed(400);
+		//ricks.add(App->physics->CreateChain(App->input->GetMouseX(), App->input->GetMouseY(), rick_head, 64));
 	}
-	else if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) 
-	{
-		App->scene_intro->left->SetMotorSpeed(400);
-	}
-	else if ((App->input->GetKey(SDL_SCANCODE_A) == KEY_UP)) 
-	{
-		//App->audio->PlayFx(App->map->kicker2_fx);
-	}
-	else {
-		App->scene_intro->left->SetMotorSpeed(-200);
-	}
-
-
 
 	// Prepare for raycast ------------------------------------------------------
 	
@@ -232,13 +236,9 @@ update_status ModuleSceneIntro::Update()
 
 void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB)
 {
-
 	int x, y;
-	if (bodyA != NULL && bodyB != NULL)
-	{
-		App->renderer->DrawLine(ray.x, ray.y, ray.x, ray.y, 255, 255, 255);
-	}
-	//App->audio->PlayFx(bonus_fx);
+
+	App->audio->PlayFx(bonus_fx);
 
 	/*
 	if(bodyA)
