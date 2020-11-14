@@ -31,8 +31,8 @@ public:
 	SDL_Texture* box;
 	SDL_Texture* rick;
 	SDL_Texture* back;
-	SDL_Texture* leftFlipper;
-	SDL_Texture* rightFlipper;
+	SDL_Texture* leftFlip;
+	SDL_Texture* rightFlip;
 
 	uint bonus_fx;
 	p2Point<int> ray;

@@ -30,8 +30,8 @@ bool ModuleSceneIntro::Start()
 	rick = App->textures->Load("assets/rick_head.png");
 	bonus_fx = App->audio->LoadFx("assets/bonus.wav");
 	back = App->textures->Load("assets/mapa.png");
-	leftFlipper = App->textures->Load("assets/palancabona.png");
-	//rightFlipper = App->textures->Load("pinball/rightFlipper.png");
+	leftFlip = App->textures->Load("assets/palancabona.png");
+	rightFlip = App->textures->Load("assets/palancabona.png");
 	sensor = App->physics->CreateRectangleSensor(SCREEN_WIDTH / 2, SCREEN_HEIGHT, SCREEN_WIDTH, 50);
 
 	int mapa[48] = {
@@ -41,7 +41,7 @@ bool ModuleSceneIntro::Start()
 		702, 705,
 		702, 637,
 		599, 675,
-		596, 667,
+		590, 667,
 		701, 627,
 		701, 171,
 		708, 162,
@@ -56,8 +56,8 @@ bool ModuleSceneIntro::Start()
 		687, 93,
 		277, 93,
 		277, 627,
-		387, 668,
-		384, 679,
+		388, 668,
+		370, 679,
 		267, 637
 	};
 
@@ -76,18 +76,36 @@ bool ModuleSceneIntro::Start()
 		337, 562,
 		310, 518
 	};
+	// Pivot 0, 0
+	int line1[8] = {
+		505, 327,
+		586, 396,
+		588, 393,
+		507, 325
+	};
+
+	// Pivot 0, 0
+	int line2[4] = {
+		693, 325,
+		612, 394
+	};
 
 	App->physics->CreateChain(-5, -75, mapa, 48, b2_staticBody);
 	App->physics -> CreateChain(-5, -75, pent, 10, b2_staticBody);
+	App->physics->CreateChain(-5, -75, line2, 4, b2_staticBody);
+	App->physics->CreateChain(-5, -75, line1, 8, b2_staticBody);
 	App->physics->CreateChain(-5, -75, pent2, 10, b2_staticBody);
 	App->physics->CreateCircle(416, 175, 17,b2_staticBody);
 	App->physics->CreateCircle(354, 115, 17,b2_staticBody);
 	App->physics->CreateCircle(483, 115, 17,b2_staticBody);
 
-	LeftFlipper.add(App->physics->lFlip(390, 666, 80, 20, 380, 605));
+	App->physics->CreateCircle(595, 253, 15, b2_staticBody);
+	App->physics->CreateCircle(595, 216, 15, b2_staticBody);
+
+	LeftFlipper.add(App->physics->lFlip(390, 666, 80, 20, 383, 610));
 	LeftFlipper.getLast()->data->listener = this;
 
-	RightFlipper.add(App->physics->rFlip(592, 666, 80, 20, 588, 605));
+	RightFlipper.add(App->physics->rFlip(592, 666, 80, 20, 585, 605));
 	RightFlipper.getLast()->data->listener = this;
 
 	return ret;
@@ -215,6 +233,26 @@ update_status ModuleSceneIntro::Update()
 		int x, y;
 		c->data->GetPosition(x, y);
 		App->renderer->Blit(rick, x, y, NULL, 1.0f, c->data->GetRotation());
+		c = c->next;
+	}
+
+	c = RightFlipper.getFirst();
+
+	while (c != NULL)
+	{
+		int x, y;
+		c->data->GetPosition(x, y);
+		App->renderer->Blit(rightFlip, x-6, y-7, NULL, 1.0f, c->data->GetRotation()+180);
+		c = c->next;
+	}
+
+	c = LeftFlipper.getFirst();
+
+	while (c != NULL)
+	{
+		int x, y;
+		c->data->GetPosition(x, y);
+		App->renderer->Blit(leftFlip, x - 6, y - 7, NULL, 1.0f, c->data->GetRotation() - 180);
 		c = c->next;
 	}
 
