@@ -1,0 +1,73 @@
+﻿  ModulePhysics.cpp
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModulePhysics.cpp(103,23): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModulePhysics.cpp(104,25): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModulePhysics.cpp(147,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModulePhysics.cpp(168,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModulePhysics.cpp(203,37): warning C4244: '=': conversión de 'int' a 'float32'; posible pérdida de datos
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModulePhysics.cpp(372,13): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModulePhysics.cpp(373,13): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModulePhysics.cpp(379,27): warning C4244: 'return': conversión de 'float32' a 'int'; posible pérdida de datos
+  ModuleSceneIntro.cpp
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.h(27,17): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.h(27,17): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.h(27,23): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(112,2): error C2065: 'left': identificador no declarado
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(154,21): error C2039: "left": no es un miembro de "ModuleSceneIntro"
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.h(9): message : vea la declaración de 'ModuleSceneIntro'
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(158,21): error C2039: "left": no es un miembro de "ModuleSceneIntro"
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.h(9): message : vea la declaración de 'ModuleSceneIntro'
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(165,21): error C2039: "left": no es un miembro de "ModuleSceneIntro"
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.h(9): message : vea la declaración de 'ModuleSceneIntro'
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(220,45): warning C4244: 'argumento': conversión de 'TYPE' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+          and
+          [
+              TYPE=float
+          ]
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(220,30): warning C4244: 'argumento': conversión de 'TYPE' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+          and
+          [
+              TYPE=float
+          ]
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(222,18): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(224,70): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(224,47): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(227,138): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(227,96): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(227,57): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(227,34): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+  ModuleTextures.cpp
+  ModuleWindow.cpp
+  Generando código...
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModulePhysics.cpp(153): error C4716: 'ModulePhysics::CreateChain': debe devolver un valor

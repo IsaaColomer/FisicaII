@@ -1,0 +1,60 @@
+﻿  ModuleSceneIntro.cpp
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.h(27,17): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.h(27,17): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.h(27,23): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(112,2): error C2065: 'left': identificador no declarado
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(154,21): error C2039: "left": no es un miembro de "ModuleSceneIntro"
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.h(9): message : vea la declaración de 'ModuleSceneIntro'
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(158,21): error C2039: "left": no es un miembro de "ModuleSceneIntro"
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.h(9): message : vea la declaración de 'ModuleSceneIntro'
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(165,21): error C2039: "left": no es un miembro de "ModuleSceneIntro"
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.h(9): message : vea la declaración de 'ModuleSceneIntro'
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(220,45): warning C4244: 'argumento': conversión de 'TYPE' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+          and
+          [
+              TYPE=float
+          ]
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(220,30): warning C4244: 'argumento': conversión de 'TYPE' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+          and
+          [
+              TYPE=float
+          ]
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(222,18): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(224,70): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(224,47): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(227,138): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(227,96): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(227,57): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(227,34): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+          with
+          [
+              TYPE=float
+          ]
