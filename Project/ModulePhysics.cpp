@@ -106,6 +106,30 @@ PhysBody* ModulePhysics::CreateRectangle(int x, int y, int width, int height)
 	return pbody;
 }
 
+//b2PrismaticJoint* ModulePhysics::CreatePrismaticJoint(PhysBody* bodyA, PhysBody* bodyB, b2Vec2 ancorA, b2Vec2 ancorB, int max, int min, int maxMotor, int motorSpeed)
+//{
+//	b2PrismaticJointDef prismaticJointDef;
+//	prismaticJointDef.bodyA = bodyA->body;
+//	prismaticJointDef.bodyB = bodyB->body;
+//	prismaticJointDef.collideConnected = false;
+//	prismaticJointDef.localAxisA.Set(0, 1);
+//	prismaticJointDef.localAnchorA.Set(PIXEL_TO_METERS(ancorA.x), PIXEL_TO_METERS(ancorA.y));
+//	prismaticJointDef.localAnchorB.Set(PIXEL_TO_METERS(ancorB.x), PIXEL_TO_METERS(ancorB.y));
+//
+//	prismaticJointDef.enableLimit = true;
+//	prismaticJointDef.lowerTranslation = PIXEL_TO_METERS(min);
+//	prismaticJointDef.upperTranslation = PIXEL_TO_METERS(max);
+//	prismaticJointDef.type = e_prismaticJoint;
+//
+//	prismaticJointDef.enableMotor = true;
+//	prismaticJointDef.motorSpeed = motorSpeed * DEGTORAD;
+//	prismaticJointDef.maxMotorForce = maxMotor;
+//
+//	b2PrismaticJoint* joint = (b2PrismaticJoint*)world->CreateJoint(&prismaticJointDef);
+//
+//	return joint;
+//}
+
 PhysBody* ModulePhysics::CreateRectangleSensor(int x, int y, int width, int height)
 {
 	b2BodyDef body;

@@ -23,9 +23,12 @@ public:
 	p2List<PhysBody*> ricks;
 	p2List<PhysBody*> LeftFlipper;
 	p2List<PhysBody*> RightFlipper;
+	PhysBody* ballP;
 
 	PhysBody* sensor;
 	bool sensed;
+	bool canJump = true;
+	int count = 0;
 
 	SDL_Texture* circle;
 	SDL_Texture* box;

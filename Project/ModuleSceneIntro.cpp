@@ -25,7 +25,7 @@ bool ModuleSceneIntro::Start()
 
 	App->renderer->camera.x = App->renderer->camera.y = 0;
 
-	//circle = App->textures->Load("assets/wheel.png"); 
+	circle = App->textures->Load("assets/ball.png"); 
 	box = App->textures->Load("assets/crate.png");
 	rick = App->textures->Load("assets/rick_head.png");
 	bonus_fx = App->audio->LoadFx("assets/bonus.wav");
@@ -33,6 +33,13 @@ bool ModuleSceneIntro::Start()
 	leftFlip = App->textures->Load("assets/palancabona.png");
 	rightFlip = App->textures->Load("assets/palancabona.png");
 	sensor = App->physics->CreateRectangleSensor(SCREEN_WIDTH / 2, SCREEN_HEIGHT, SCREEN_WIDTH, 50);
+
+	//sensor = App->physics->CreateRectangleSensor(0 , 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+
+	//int pos_x = 596; int pos_y = 1150;
+	//PhysBody* A = App->physics->CreateRectangle(pos_x, pos_y, 10, 100); A->body->SetType(b2_staticBody);
+	//PhysBody* B = App->physics->CreateRectangle(pos_x, pos_y, 50, 70); A->body->SetType(b2_staticBody);
+	//spring = App->physics->CreatePrismaticJoint(A, B, b2Vec2(1, 10), b2Vec2(1, -10), -40, -120, 350, 200);
 
 	int mapa[48] = {
 		268, 86,
@@ -45,8 +52,8 @@ bool ModuleSceneIntro::Start()
 		701, 627,
 		701, 171,
 		708, 162,
-		714, 170,
-		714, 694,
+		720, 170,
+		720, 694,
 		743, 694,
 		743, 136,
 		738, 123,
@@ -91,13 +98,17 @@ bool ModuleSceneIntro::Start()
 	};
 
 	App->physics->CreateChain(-5, -75, mapa, 48, b2_staticBody);
-	App->physics -> CreateChain(-5, -75, pent, 10, b2_staticBody);
+	App->physics->CreateChain(-5, -75, pent, 10, b2_staticBody);
 	App->physics->CreateChain(-5, -75, line2, 4, b2_staticBody);
 	App->physics->CreateChain(-5, -75, line1, 8, b2_staticBody);
 	App->physics->CreateChain(-5, -75, pent2, 10, b2_staticBody);
 	App->physics->CreateCircle(416, 175, 17,b2_staticBody);
 	App->physics->CreateCircle(354, 115, 17,b2_staticBody);
 	App->physics->CreateCircle(483, 115, 17,b2_staticBody);
+
+	//
+
+	ballP = App->physics->CreateCircle(720, 600, 10, b2_dynamicBody);
 
 	App->physics->CreateCircle(595, 253, 15, b2_staticBody);
 	App->physics->CreateCircle(595, 216, 15, b2_staticBody);
@@ -122,19 +133,39 @@ bool ModuleSceneIntro::CleanUp()
 // Update: draw background
 update_status ModuleSceneIntro::Update()
 {
-	if(App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
+
+	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
 	{
-		ray_on = !ray_on;
-		ray.x = App->input->GetMouseX();
-		ray.y = App->input->GetMouseY();
+		count++;
+	}
+	if (count == 1)
+	{
+		canJump = true;
+	}
+	else
+	{
+		canJump = false;
+	}
+	b2Vec2 pos1 = ballP->body->GetPosition();
+
+	if(App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && canJump)
+	{
+		
+		b2Vec2 impulse(0.0f,-2.0f);
+		b2Vec2 pos = ballP->body->GetPosition();
+		pos.x += 10;
+		pos.y += 10;
+	//	b2Vec2 point(730,590);
+		b2Vec2 point(pos);
+		
+		ballP->body->ApplyLinearImpulse(impulse, point, true);
 	}
 
-	if(App->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
+	/*if(App->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
 	{
 		circles.add(App->physics->CreateCircle(App->input->GetMouseX(), App->input->GetMouseY(), 10, b2_dynamicBody));
 		circles.getLast()->data->listener = this;
-	}
-
+	}*/
 	if(App->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
 	{
 		boxes.add(App->physics->CreateRectangle(App->input->GetMouseX(), App->input->GetMouseY(), 100, 50));
@@ -205,11 +236,9 @@ update_status ModuleSceneIntro::Update()
 	{
 		int x, y;
 		c->data->GetPosition(x, y);
-		if(c->data->Contains(App->input->GetMouseX(), App->input->GetMouseY()))
 			App->renderer->Blit(circle, x, y, NULL, 1.0f, c->data->GetRotation());
 		c = c->next;
 	}
-
 	c = boxes.getFirst();
 	App->renderer->Blit(back, -5,-75, NULL, NULL, NULL);
 	while(c != NULL)
@@ -255,7 +284,6 @@ update_status ModuleSceneIntro::Update()
 		App->renderer->Blit(leftFlip, x - 6, y - 7, NULL, 1.0f, c->data->GetRotation() - 180);
 		c = c->next;
 	}
-
 	// ray -----------------
 	if(ray_on == true)
 	{
@@ -277,9 +305,12 @@ void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB)
 	int x, y;
 
 	App->audio->PlayFx(bonus_fx);
+	if (bodyB == sensor)
+	{
 
-	/*
-	if(bodyA)
+	}
+	delete ballP;
+	/*if(bodyA)
 	{
 		bodyA->GetPosition(x, y);
 		App->renderer->DrawCircle(x, y, 50, 100, 100, 100);
