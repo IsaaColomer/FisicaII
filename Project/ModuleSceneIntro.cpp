@@ -133,6 +133,22 @@ bool ModuleSceneIntro::CleanUp()
 // Update: draw background
 update_status ModuleSceneIntro::Update()
 {
+	b2Vec2 position = ballP->body->GetPosition();
+
+	if (position.y < 100)
+	{
+		onScreen = true;
+	}
+	else
+	{
+		onScreen = false;
+	}
+	if (onScreen == false)
+	{
+		ballP = App->physics->CreateCircle(720, 600, 10, b2_dynamicBody);
+		canJump = true;
+		count = 0;
+	}
 
 	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
 	{
@@ -239,6 +255,7 @@ update_status ModuleSceneIntro::Update()
 			App->renderer->Blit(circle, x, y, NULL, 1.0f, c->data->GetRotation());
 		c = c->next;
 	}
+
 	c = boxes.getFirst();
 	App->renderer->Blit(back, -5,-75, NULL, NULL, NULL);
 	while(c != NULL)
@@ -309,16 +326,4 @@ void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB)
 	{
 
 	}
-	delete ballP;
-	/*if(bodyA)
-	{
-		bodyA->GetPosition(x, y);
-		App->renderer->DrawCircle(x, y, 50, 100, 100, 100);
-	}
-
-	if(bodyB)
-	{
-		bodyB->GetPosition(x, y);
-		App->renderer->DrawCircle(x, y, 50, 100, 100, 100);
-	}*/
 }

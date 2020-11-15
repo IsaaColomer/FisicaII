@@ -29,6 +29,8 @@ public:
 	bool sensed;
 	bool canJump = true;
 	int count = 0;
+	bool onScreen = true;
+
 
 	SDL_Texture* circle;
 	SDL_Texture* box;
