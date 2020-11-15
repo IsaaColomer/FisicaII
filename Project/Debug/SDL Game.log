@@ -1,5 +1,5 @@
 ﻿  ModuleSceneIntro.cpp
-C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(302,45): warning C4244: 'argumento': conversión de 'TYPE' a 'TYPE'; posible pérdida de datos
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(297,45): warning C4244: 'argumento': conversión de 'TYPE' a 'TYPE'; posible pérdida de datos
           with
           [
               TYPE=int
@@ -8,7 +8,7 @@ C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(302,45): w
           [
               TYPE=float
           ]
-C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(302,30): warning C4244: 'argumento': conversión de 'TYPE' a 'TYPE'; posible pérdida de datos
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(297,30): warning C4244: 'argumento': conversión de 'TYPE' a 'TYPE'; posible pérdida de datos
           with
           [
               TYPE=int
@@ -17,37 +17,37 @@ C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(302,30): w
           [
               TYPE=float
           ]
-C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(304,18): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(306,70): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(299,18): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(301,70): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
           with
           [
               TYPE=float
           ]
-C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(306,47): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(301,47): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
           with
           [
               TYPE=float
           ]
-C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(309,138): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(304,138): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
           with
           [
               TYPE=float
           ]
-C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(309,96): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(304,96): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
           with
           [
               TYPE=float
           ]
-C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(309,57): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(304,57): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
           with
           [
               TYPE=float
           ]
-C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(309,34): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(304,34): warning C4244: 'argumento': conversión de 'TYPE' a 'int'; posible pérdida de datos
           with
           [
               TYPE=float
           ]
-C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(317,9): warning C4101: 'y': variable local sin referencia
-C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(317,6): warning C4101: 'x': variable local sin referencia
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(312,9): warning C4101: 'y': variable local sin referencia
+C:\Users\Isaac\Documents\GitHub\FisicaII\Project\ModuleSceneIntro.cpp(312,6): warning C4101: 'x': variable local sin referencia
   SDL Game.vcxproj -> C:\Users\Isaac\Documents\GitHub\FisicaII\Project\Debug\2D Physics - class 4.exe

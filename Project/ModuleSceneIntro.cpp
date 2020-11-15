@@ -101,9 +101,8 @@ bool ModuleSceneIntro::Start()
 	App->physics->CreateCircle(354, 115, 17,b2_staticBody);
 	App->physics->CreateCircle(483, 115, 17,b2_staticBody);
 
-	//
-
-	ballP = App->physics->CreateCircle(720, 600, 10, b2_dynamicBody);
+	circles.add(App->physics->CreateCircle(720,600, 10, b2_dynamicBody));
+	circles.getLast()->data->listener = this;
 
 	App->physics->CreateCircle(595, 253, 15, b2_staticBody);
 	App->physics->CreateCircle(595, 216, 15, b2_staticBody);
@@ -128,7 +127,10 @@ bool ModuleSceneIntro::CleanUp()
 // Update: draw background
 update_status ModuleSceneIntro::Update()
 {
-	b2Vec2 position = ballP->body->GetPosition();
+	App->renderer->Blit(back, -5, -75, NULL, NULL, NULL);
+	b2Vec2 force(0, -200);
+	b2Vec2 speed(0, 0);
+	b2Vec2 position = circles.getFirst()->data->body->GetPosition();
 
 	if (position.y < 20)
 	{
@@ -140,7 +142,9 @@ update_status ModuleSceneIntro::Update()
 	}
 	if (onScreen == false)
 	{
-		ballP = App->physics->CreateCircle(720, 600, 10, b2_dynamicBody);
+		circles.clear();
+		circles.add(App->physics->CreateCircle(720, 600, 10, b2_dynamicBody));
+		circles.getLast()->data->listener = this;
 		canJump = true;
 		count = 0;
 	}
@@ -157,19 +161,10 @@ update_status ModuleSceneIntro::Update()
 	{
 		canJump = false;
 	}
-	b2Vec2 pos1 = ballP->body->GetPosition();
 
-	if(App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && canJump)
+	if(App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && canJump && circles.getFirst()->data->body->GetLinearVelocity() == speed)
 	{
-		
-		b2Vec2 impulse(0.0f,-2.0f);
-		b2Vec2 pos = ballP->body->GetPosition();
-		pos.x += 10;
-		pos.y += 10;
-	//	b2Vec2 point(730,590);
-		b2Vec2 point(pos);
-		
-		ballP->body->ApplyLinearImpulse(impulse, point, true);
+		circles.getFirst()->data->body->ApplyForce(force, circles.getFirst()->data->body->GetPosition(), true);
 	}
 
 	if(App->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
@@ -252,7 +247,7 @@ update_status ModuleSceneIntro::Update()
 	}
 
 	c = boxes.getFirst();
-	App->renderer->Blit(back, -5,-75, NULL, NULL, NULL);
+
 	while(c != NULL)
 	{
 		int x, y;
