@@ -25,10 +25,12 @@ bool ModuleSceneIntro::Start()
 
 	App->renderer->camera.x = App->renderer->camera.y = 0;
 
-	ball = App->textures->Load("assets/knkro.png"); 
+	ball = App->textures->Load("assets/ball.png");
+	kn = App->textures->Load("assets/knkro.png");
 	box = App->textures->Load("assets/crate.png");
 	rick = App->textures->Load("assets/rick_head.png");
 	bonus_fx = App->audio->LoadFx("assets/bonus.wav");
+	coin_fx = App->audio->LoadFx("assets/coin.wav");
 	back = App->textures->Load("assets/mapa.png");
 	leftFlip = App->textures->Load("assets/palancabona.png");
 	rightFlip = App->textures->Load("assets/palancabona.png");
@@ -185,6 +187,7 @@ update_status ModuleSceneIntro::Update()
 		RightFlipper.getFirst()->data->body->ApplyTorque(2000.0f, true);
 	}
 
+	
 	if(App->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
 	{
 		// Pivot 0, 0
@@ -244,6 +247,18 @@ update_status ModuleSceneIntro::Update()
 		c->data->GetPosition(x, y);
 			App->renderer->Blit(ball, x, y, NULL, 1.0f, c->data->GetRotation());
 		c = c->next;
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_3) == KEY_REPEAT)
+	{
+		p2List_item<PhysBody*>* k = circles.getFirst();
+		while (k != NULL)
+		{
+			int x, y;
+			k->data->GetPosition(x, y);
+			App->renderer->Blit(kn, x, y, NULL, 1.0f, k->data->GetRotation());
+			k = k->next;
+		}
 	}
 
 	c = boxes.getFirst();
@@ -310,5 +325,5 @@ update_status ModuleSceneIntro::Update()
 void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB)
 {
 	int x, y;
-	App->audio->PlayFx(bonus_fx);
+	App->audio->PlayFx(coin_fx);
 }

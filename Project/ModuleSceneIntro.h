@@ -23,7 +23,6 @@ public:
 	p2List<PhysBody*> ricks;
 	p2List<PhysBody*> LeftFlipper;
 	p2List<PhysBody*> RightFlipper;
-	PhysBody* ballP;
 
 	PhysBody* sensor;
 	bool sensed;
@@ -37,10 +36,13 @@ public:
 	SDL_Texture* box;
 	SDL_Texture* rick;
 	SDL_Texture* back;
+	SDL_Texture* kn;
 	SDL_Texture* leftFlip;
 	SDL_Texture* rightFlip;
 
 	uint bonus_fx;
+	uint back_fx;
+	uint coin_fx;
 	p2Point<int> ray;
 	bool ray_on;
 };
