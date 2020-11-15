@@ -106,7 +106,7 @@ bool ModuleSceneIntro::Start()
 		375, 367
 	};
 	// Pivot 0, 0
-	int circ2[20] = {
+	/*int circ2[20] = {
 		409, 367,
 		416, 366,
 		425, 363,
@@ -117,28 +117,28 @@ bool ModuleSceneIntro::Start()
 		472, 322,
 		478, 310,
 		480, 299
-	};
+	};*/
 
 	// Pivot 0.000000, 0.000000
 
 	App->physics->CreateChain(-5, -75, mapa, 48, b2_staticBody);
 	App->physics->CreateChain(-5, -75, pent, 10, b2_staticBody);
-	//App->physics->CreateChain(-5, -75, line2, 4, b2_staticBody);
-	//App->physics->CreateChain(-5, -75, line1, 8, b2_staticBody);
+	App->physics->CreateChain(-5, -75, line2, 4, b2_staticBody);
+	App->physics->CreateChain(-5, -75, line1, 8, b2_staticBody);
 	App->physics->CreateChain(-5, -75, pent2, 10, b2_staticBody);
 
 	App->physics->CreateChain(-5, -75, circ1, 18, b2_staticBody);
-	App->physics->CreateChain(-5, -75, circ2, 20, b2_staticBody);
+//	App->physics->CreateChain(-5, -75, circ2, 20, b2_staticBody);
 
 	App->physics->CreateCircle(416, 175, 17,b2_staticBody);
 	App->physics->CreateCircle(354, 115, 17,b2_staticBody);
-	App->physics->CreateCircle(483, 115, 17,b2_staticBody);
+//	App->physics->CreateCircle(483, 115, 17,b2_staticBody);
 
 	circles.add(App->physics->CreateCircle(720,600, 10, b2_dynamicBody));
 	circles.getLast()->data->listener = this;
 
-	/*App->physics->CreateCircle(595, 253, 15, b2_staticBody);
-	App->physics->CreateCircle(595, 216, 15, b2_staticBody);*/
+	App->physics->CreateCircle(595, 253, 15, b2_staticBody);
+	App->physics->CreateCircle(595, 216, 15, b2_staticBody);
 
 	LeftFlipper.add(App->physics->lFlip(390, 666, 80, 20, 383, 610));
 	LeftFlipper.getLast()->data->listener = this;
