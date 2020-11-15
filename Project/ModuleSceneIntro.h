@@ -30,9 +30,10 @@ public:
 	bool canJump = true;
 	int count = 0;
 	bool onScreen = true;
+	bool onPosition = true;
 
 
-	SDL_Texture* circle;
+	SDL_Texture* ball;
 	SDL_Texture* box;
 	SDL_Texture* rick;
 	SDL_Texture* back;

@@ -297,12 +297,11 @@ PhysBody* ModulePhysics::lFlip(int x1, int y1, int width, int height, int x2, in
 	flipDef.bodyB = anchor;
 
 	flipDef.referenceAngle = 165 * DEGTORAD;
-	flipDef.upperAngle = 50 * DEGTORAD;//0.25f * b2_pi
-	//jointDef.lowerAngle = 160* DEGTORAD;
+	flipDef.upperAngle = 50 * DEGTORAD;
 	flipDef.enableLimit = true;
 
 	flipDef.enableMotor = true;
-	flipDef.maxMotorTorque = 9.0f;
+	flipDef.maxMotorTorque = 6.0f;
 	flipDef.motorSpeed = -1.5f;
 
 	flipDef.localAnchorA.Set(PIXEL_TO_METERS(45), 0);

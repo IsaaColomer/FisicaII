@@ -9,7 +9,7 @@
 
 ModuleSceneIntro::ModuleSceneIntro(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
-	circle = box = rick = NULL;
+	ball = box = rick = NULL;
 	ray_on = false;
 	sensed = false;
 }
@@ -25,21 +25,16 @@ bool ModuleSceneIntro::Start()
 
 	App->renderer->camera.x = App->renderer->camera.y = 0;
 
-	circle = App->textures->Load("assets/ball.png"); 
+	ball = App->textures->Load("assets/ball.png"); 
 	box = App->textures->Load("assets/crate.png");
 	rick = App->textures->Load("assets/rick_head.png");
 	bonus_fx = App->audio->LoadFx("assets/bonus.wav");
 	back = App->textures->Load("assets/mapa.png");
 	leftFlip = App->textures->Load("assets/palancabona.png");
 	rightFlip = App->textures->Load("assets/palancabona.png");
-	sensor = App->physics->CreateRectangleSensor(SCREEN_WIDTH / 2, SCREEN_HEIGHT, SCREEN_WIDTH, 50);
+	//sensor = App->physics->CreateRectangleSensor(SCREEN_WIDTH / 2, SCREEN_HEIGHT, SCREEN_WIDTH, 50);
 
 	//sensor = App->physics->CreateRectangleSensor(0 , 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-
-	//int pos_x = 596; int pos_y = 1150;
-	//PhysBody* A = App->physics->CreateRectangle(pos_x, pos_y, 10, 100); A->body->SetType(b2_staticBody);
-	//PhysBody* B = App->physics->CreateRectangle(pos_x, pos_y, 50, 70); A->body->SetType(b2_staticBody);
-	//spring = App->physics->CreatePrismaticJoint(A, B, b2Vec2(1, 10), b2Vec2(1, -10), -40, -120, 350, 200);
 
 	int mapa[48] = {
 		268, 86,
@@ -135,7 +130,7 @@ update_status ModuleSceneIntro::Update()
 {
 	b2Vec2 position = ballP->body->GetPosition();
 
-	if (position.y < 100)
+	if (position.y < 20)
 	{
 		onScreen = true;
 	}
@@ -177,22 +172,22 @@ update_status ModuleSceneIntro::Update()
 		ballP->body->ApplyLinearImpulse(impulse, point, true);
 	}
 
-	/*if(App->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
+	if(App->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
 	{
 		circles.add(App->physics->CreateCircle(App->input->GetMouseX(), App->input->GetMouseY(), 10, b2_dynamicBody));
 		circles.getLast()->data->listener = this;
-	}*/
+	}
 	if(App->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
 	{
 		boxes.add(App->physics->CreateRectangle(App->input->GetMouseX(), App->input->GetMouseY(), 100, 50));
 	}
 	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_DOWN)
 	{
-		LeftFlipper.getFirst()->data->body->ApplyTorque(-2500.0f, true);
+		LeftFlipper.getFirst()->data->body->ApplyTorque(-2000.0f, true);
 	}
 	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_DOWN)
 	{
-		RightFlipper.getFirst()->data->body->ApplyTorque(2500.0f, true);
+		RightFlipper.getFirst()->data->body->ApplyTorque(2000.0f, true);
 	}
 
 	if(App->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
@@ -252,7 +247,7 @@ update_status ModuleSceneIntro::Update()
 	{
 		int x, y;
 		c->data->GetPosition(x, y);
-			App->renderer->Blit(circle, x, y, NULL, 1.0f, c->data->GetRotation());
+			App->renderer->Blit(ball, x, y, NULL, 1.0f, c->data->GetRotation());
 		c = c->next;
 	}
 
@@ -320,10 +315,5 @@ update_status ModuleSceneIntro::Update()
 void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB)
 {
 	int x, y;
-
 	App->audio->PlayFx(bonus_fx);
-	if (bodyB == sensor)
-	{
-
-	}
 }
