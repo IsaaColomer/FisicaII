@@ -25,7 +25,7 @@ bool ModuleSceneIntro::Start()
 
 	App->renderer->camera.x = App->renderer->camera.y = 0;
 
-	ball = App->textures->Load("assets/ball.png"); 
+	ball = App->textures->Load("assets/knkro.png"); 
 	box = App->textures->Load("assets/crate.png");
 	rick = App->textures->Load("assets/rick_head.png");
 	bonus_fx = App->audio->LoadFx("assets/bonus.wav");
