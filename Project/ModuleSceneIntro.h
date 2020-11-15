@@ -24,6 +24,9 @@ public:
 	p2List<PhysBody*> LeftFlipper;
 	p2List<PhysBody*> RightFlipper;
 
+	PhysBody* col1;
+	PhysBody* col2;
+
 	PhysBody* sensor;
 	bool sensed;
 	bool canJump = true;

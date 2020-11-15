@@ -96,8 +96,8 @@ bool ModuleSceneIntro::Start()
 
 	App->physics->CreateChain(-5, -75, mapa, 48, b2_staticBody);
 	App->physics->CreateChain(-5, -75, pent, 10, b2_staticBody);
-	App->physics->CreateChain(-5, -75, line2, 4, b2_staticBody);
-	App->physics->CreateChain(-5, -75, line1, 8, b2_staticBody);
+	//App->physics->CreateChain(-5, -75, line2, 4, b2_staticBody);
+	//App->physics->CreateChain(-5, -75, line1, 8, b2_staticBody);
 	App->physics->CreateChain(-5, -75, pent2, 10, b2_staticBody);
 	App->physics->CreateCircle(416, 175, 17,b2_staticBody);
 	App->physics->CreateCircle(354, 115, 17,b2_staticBody);
@@ -106,8 +106,8 @@ bool ModuleSceneIntro::Start()
 	circles.add(App->physics->CreateCircle(720,600, 10, b2_dynamicBody));
 	circles.getLast()->data->listener = this;
 
-	App->physics->CreateCircle(595, 253, 15, b2_staticBody);
-	App->physics->CreateCircle(595, 216, 15, b2_staticBody);
+	/*App->physics->CreateCircle(595, 253, 15, b2_staticBody);
+	App->physics->CreateCircle(595, 216, 15, b2_staticBody);*/
 
 	LeftFlipper.add(App->physics->lFlip(390, 666, 80, 20, 383, 610));
 	LeftFlipper.getLast()->data->listener = this;
@@ -115,6 +115,8 @@ bool ModuleSceneIntro::Start()
 	RightFlipper.add(App->physics->rFlip(592, 666, 80, 20, 585, 605));
 	RightFlipper.getLast()->data->listener = this;
 
+	col1 = App->physics->CreateCircleSensor(595, 253, 15, b2_staticBody);
+	col2 = App->physics->CreateCircleSensor(595, 216, 15, b2_staticBody);
 	return ret;
 }
 
@@ -326,4 +328,15 @@ void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB)
 {
 	int x, y;
 	App->audio->PlayFx(coin_fx);
+
+	if (bodyB == col1 || bodyB == col2)
+	{
+		b2Vec2 lv(circles.getFirst()->data->body->GetLinearVelocity());
+
+		lv.x = -lv.x * 2;
+		lv.y = -lv.y * 2;
+
+		circles.getFirst()->data->body->ApplyForce(lv, circles.getFirst()->data->body->GetPosition(), true);
+
+	}
 }

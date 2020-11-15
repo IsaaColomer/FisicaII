@@ -47,6 +47,7 @@ public:
 	PhysBody* CreateRectangleSensor(int x, int y, int width, int height);
 	PhysBody* CreateChain(int x, int y, int* points, int size, b2BodyType type);
 	PhysBody* lFlip(int x1, int y1, int width, int height, int x2, int y2);
+	PhysBody* CreateCircleSensor(int x, int y, int radius, b2BodyType type);
 	PhysBody* rFlip(int x1, int y1, int width, int height, int x2, int y2);
 //	b2PrismaticJoint* ModulePhysics::CreatePrismaticJoint(PhysBody* bodyA, PhysBody* bodyB, b2Vec2 ancorA, b2Vec2 ancorB, int max, int min, int maxMotor, int motorSpeed);
 
